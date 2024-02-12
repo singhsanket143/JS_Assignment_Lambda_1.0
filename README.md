@@ -29,4 +29,4 @@ npm test
 
 7. While raising a PR, you might be asked to raise an approval for workflow, do raise it and we will approve it in next 24 HRS. If all of your unit tests pass then only the workflow will pass properly else it will fail. 
 
-8. We won't be mergin a PR but your PR will be used to mark your assignment submission. 
+8. We won't be merging a PR but your PR will be used to mark your assignment submission. 
