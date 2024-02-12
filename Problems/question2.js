@@ -20,5 +20,5 @@
  */
 
 export default function makeCounter(initialValue = 0) {
-    throw 'Not implemented';
+    throw 'Not implemented!';
 }
