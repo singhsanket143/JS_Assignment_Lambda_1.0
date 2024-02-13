@@ -26,6 +26,17 @@ Read more about it here: https://lodash.com/docs/#chunk
  * @param {number} [size=1] The length of each chunk.
  * @returns {Array<Array<T>>} The new array of chunks.
  */
-export default function chunk(array, size = 1) {
-    throw 'Not implemented!';
-  }
+
+export default function chunk(data = [], size = 1) {
+    if (!data.length) return []
+
+    if (size === 1 || data.length === 1) return data.map(data => [data]);
+
+    const clone_data = [...data];
+    const new_data = [];
+    while (clone_data.length > size) {
+        new_data.push(clone_data.splice(0, size))
+    }
+    new_data.push(clone_data)
+    return new_data
+}
