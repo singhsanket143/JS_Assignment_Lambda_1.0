@@ -20,18 +20,6 @@ Examples
  * @return {boolean}
  *
  * */
-let isPrimitive = (val) => {
-  if (val === null) {
-    console.log(true);
-    return;
-  }
-
-  if (typeof val == "object" || typeof val == "function") {
-    return false;
-  } else {
-    return true;
-  }
-};
 
 export default function deepEqual(x, y) {
   if (x === y) {
