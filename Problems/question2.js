@@ -18,7 +18,20 @@
  * counter(); // 6
  * counter(); // 7
  */
-
-export default function makeCounter(initialValue = 0) {
-    throw 'Not implemented';
+let prev=0; let count=0;
+function increment(){
+   
+    if(count==0){
+        count++
+        return 0
+    }else{
+         let next=prev;
+         prev++
+         return next;
+    }
+   
+  
+}
+export default function makeCounter(){
+  return increment
 }
