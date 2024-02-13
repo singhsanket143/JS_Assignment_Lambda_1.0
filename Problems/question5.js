@@ -18,7 +18,31 @@ Examples
  * @param {*} valueA
  * @param {*} valueB
  * @return {boolean}
- */
-export default function deepEqual(valueA, valueB) {
-    throw 'Not implemented!';
-  }
+ *
+ * */
+
+export default function deepEqual(x, y) {
+  if (x === y) {
+    //for handling primitive types
+    return true;
+  } else if (
+    typeof x == "object" &&
+    x != null &&
+    typeof y == "object" &&
+    y != null
+  ) {
+    if (Object.keys(x).length != Object.keys(y).length) return false; //if number of keys are not same then objects are not equal
+
+    for (var prop in x) {
+      if (y.hasOwnProperty(prop)) {
+        /*checking both object have same key or not ,if both objects have differrent
+       keys then objects are not equal*/
+
+        if (!deepEqual(x[prop], y[prop])) return false;
+        //if value of both keys are not equal then objects are not equal
+      } else return false;
+    }
+
+    return true;
+  } else return false;
+}
