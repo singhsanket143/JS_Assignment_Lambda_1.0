@@ -23,6 +23,6 @@ export default function makeCounter(initialValue = 0) {
     let temporaryValue = initialValue;
 
     return function() {
-        temporaryValue++;
+        return temporaryValue++;
     }
 }
