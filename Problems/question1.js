@@ -14,6 +14,7 @@
     functionLength(baz); // 2
  */
 
+ 
 export default function functionLength(fn) {
-    throw 'Not implemented';
+    return fn.length;
 }
