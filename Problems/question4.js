@@ -1,7 +1,7 @@
 /**
- * 
-Implement a function chunk(array, [size=1]) that splits the input array into groups of length size 
-and returns them within a new array. If array can't be split evenly, the final chunk will be the 
+ *
+Implement a function chunk(array, [size=1]) that splits the input array into groups of length size
+and returns them within a new array. If array can't be split evenly, the final chunk will be the
 remaining elements. The function should not modify the original input array.
 
 Arguments
@@ -27,5 +27,9 @@ Read more about it here: https://lodash.com/docs/#chunk
  * @returns {Array<Array<T>>} The new array of chunks.
  */
 export default function chunk(array, size = 1) {
-    throw 'Not implemented!';
+    let result = [];
+    for (let i = 0; i < array.length; i += size) {
+        result.push(array.slice(i, i + size));
+    }
+    return result;
   }
