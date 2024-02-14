@@ -20,5 +20,7 @@
  */
 
 export default function makeCounter(initialValue = 0) {
-    throw 'Not implemented';
+    return function(){
+        return(initialValue++);
+    }
 }

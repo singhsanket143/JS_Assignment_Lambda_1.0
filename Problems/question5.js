@@ -1,3 +1,4 @@
+const assert = require("assert");
 /**
  * 
 Implement a function deepEqual that performs a deep comparison between two 
@@ -20,5 +21,5 @@ Examples
  * @return {boolean}
  */
 export default function deepEqual(valueA, valueB) {
-    throw 'Not implemented!';
-  }
+  return JSON.stringify(valueA) === JSON.stringify(valueB);
+}
