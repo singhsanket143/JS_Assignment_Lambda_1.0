@@ -20,5 +20,41 @@ Examples
  * @return {boolean}
  */
 export default function deepEqual(valueA, valueB) {
-    throw 'Not implemented!';
+  if (typeof (valueA) != typeof (valueB)) {
+    return false;
   }
+  //If both the arguments are array
+  if (Array.isArray(valueA) && Array.isArray(valueB)) {
+    if (valueA.length != valueB.length) {
+      return false;
+    }
+    for (let i = 0; i < valueA.length; i++) {
+      if (!deepEqual(valueA[i], valueB[i])) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  //If both the arguments are object but not array and not null
+  if (typeof (valueA) === 'object' && typeof (valueB) === 'object' && valueA !== null && valueB !== null) {
+    const keySetA = Object.keys(valueA);
+    const keySetB = Object.keys(valueB);
+
+    if (deepEqual(keySetA, keySetB)) {
+      for (let key of keySetA) {
+        if (!deepEqual(valueA[key], valueB[key])) {
+          return false;
+        }
+      }
+      return true;
+    }
+    else {
+      return false;
+    }
+
+  }
+
+  //If they are premitive datatype
+  return valueA === valueB;
+}
