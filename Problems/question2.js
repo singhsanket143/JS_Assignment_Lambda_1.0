@@ -20,5 +20,10 @@
  */
 
 export default function makeCounter(initialValue = 0) {
-    throw 'Not implemented';
+    function innerFunc() {
+        let temp=initialValue;
+        initialValue += 1;
+        return temp;
+    }
+    return innerFunc;
 }
