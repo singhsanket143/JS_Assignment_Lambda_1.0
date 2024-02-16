@@ -20,5 +20,41 @@ Examples
  * @return {boolean}
  */
 export default function deepEqual(valueA, valueB) {
-    throw 'Not implemented!';
-  }
+  const stack = [{ a: valueA, b: valueB }];
+
+    while (stack.length > 0) {
+        const { a, b } = stack.pop();
+
+        // Check if both values are strictly equal
+        if (a === b) {
+            continue;
+        }
+
+        // Check if both values are objects and not null
+        if (typeof a === 'object' && a !== null &&
+            typeof b === 'object' && b !== null) {
+
+            // Check if both objects have the same number of keys
+            const keysA = Object.keys(a);
+            const keysB = Object.keys(b);
+
+            if (keysA.length !== keysB.length) {
+                return false;
+            }
+
+            // Check and push each key-value pair to the stack
+            for (const key of keysA) {
+                if (!keysB.includes(key)) {
+                    return false;
+                }
+                stack.push({ a: a[key], b: b[key] });
+            }
+        } else {
+            // If values are not objects or arrays, return false
+            return false;
+        }
+    }
+
+    // If no mismatches are found, return true
+    return true;
+}
