@@ -30,7 +30,7 @@ export default function chunk(array, size = 1) {
 
   let chunkArray = [];
   for (let i = 0; i < array.length; i += size) {
-    chunkArray.push(array.slice(1, i + size));
+    chunkArray.push(array.slice(i, i + size));
   }
   return chunkArray;
 }
