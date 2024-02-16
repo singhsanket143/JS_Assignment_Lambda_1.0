@@ -15,5 +15,8 @@
  */
 
 export default function functionLength(fn) {
-    throw 'Not implemented';
+    if(typeof fn !== 'function') {
+        throw new Error('Argument is not a function');
+    }
+    return fn.length;
 }
