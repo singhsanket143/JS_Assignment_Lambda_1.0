@@ -20,5 +20,32 @@ Examples
  * @return {boolean}
  */
 export default function deepEqual(valueA, valueB) {
-    throw 'Not implemented!';
+  // for different data type
+  if (typeof valueA !== typeof valueB) return false;
+
+  // for primitive values
+  if (typeof valueA !== "object" || valueA === null || valueB === null)
+    return valueA === valueB;
+
+  // for array
+  if (Array.isArray(valueA)) {
+    if (valueA.length != valueB.length) return false;
+
+    let len = valueA.length;
+    for (let idx = 0; idx < len; idx++) {
+      if (!deepEqual(valueA[idx], valueB[idx])) return false;
+    }
+    return true;
   }
+  // for object
+  else {
+    const key1 = Object.keys(valueA);
+    const key2 = Object.keys(valueB);
+
+    if (key1.length != key2.length) return false;
+    for (const key of key1) {
+      if (!deepEqual(valueA[key], valueB[key])) return false;
+    }
+    return true;
+  }
+}
