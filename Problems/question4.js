@@ -30,8 +30,9 @@ export default function chunk(array, size = 1) {
   let index = 0;
 
   while (index < array.length) {
-    chunks.push(array, slice(index, index + size));
+    chunks.push(array.slice(index, index + size));
     index += size;
   }
+
   return chunks;
 }
