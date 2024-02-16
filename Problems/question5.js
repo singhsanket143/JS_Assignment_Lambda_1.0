@@ -20,5 +20,6 @@ Examples
  * @return {boolean}
  */
 export default function deepEqual(valueA, valueB) {
+    return JSON.stringify(valueA) === JSON.stringify(valueB);
     throw 'Not implemented!';
   }
