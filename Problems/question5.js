@@ -45,5 +45,5 @@ export default function deepEqual(valueA, valueB) {
         return false;
       }
   }
-  return true;
+  return true; 
 }
