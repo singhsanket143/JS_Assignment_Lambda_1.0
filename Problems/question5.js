@@ -20,5 +20,21 @@ Examples
  * @return {boolean}
  */
 export default function deepEqual(valueA, valueB) {
-    throw 'Not implemented!';
+  //throw 'Not implemented!';
+  if (valueA === valueB) {
+    return true;
   }
+  if (typeof valueA !== "object" || typeof valueB !== "object") {
+    return false;
+  }
+  if (Object.keys(valueA).length !== Object.keys(valueB).length) {
+    return false;
+  }
+
+  for (let key in valueA) {
+    if (!deepEqual(valueA[key], valueB[key])) {
+      return false;
+    }
+  }
+  return true;
+}
