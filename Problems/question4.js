@@ -19,7 +19,6 @@ Examples
 Read more about it here: https://lodash.com/docs/#chunk
  */
 
-
 /**
  * @template T
  * @param {Array<T>} array The array to process.
@@ -27,5 +26,13 @@ Read more about it here: https://lodash.com/docs/#chunk
  * @returns {Array<Array<T>>} The new array of chunks.
  */
 export default function chunk(array, size = 1) {
-    throw 'Not implemented!';
+  let result = [];
+  let n = array.length;
+
+  for (let idx = 0; idx < n; idx += size) {
+    let temp = array.slice(idx, idx + size);
+    result.push(temp);
   }
+
+  return result;
+}
