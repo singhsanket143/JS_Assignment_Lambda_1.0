@@ -15,5 +15,9 @@
  */
 
 export default function functionLength(fn) {
-    throw 'Not implemented';
+    /**
+     * resources used
+     * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length
+     */
+    return fn.length;
 }

@@ -20,5 +20,11 @@ Examples
  * @return {boolean}
  */
 export default function deepEqual(valueA, valueB) {
-    throw 'Not implemented!';
+    /**
+     * resources used
+     * https://www.javatpoint.com/shallow-copy-and-deep-copy-in-javascript#:~:text=ADVERTISEMENT-,In%20JavaScript%2C%20there%20are%20two%20ways%20to%20copy%20objects%3A%20shallow,and%20nested%20objects%20or%20arrays.
+     */
+
+    return JSON.stringify(valueA)===JSON.stringify(valueB);
+
   }
