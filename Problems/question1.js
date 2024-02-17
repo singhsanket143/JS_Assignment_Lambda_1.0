@@ -14,6 +14,10 @@
     functionLength(baz); // 2
  */
 
+// Solution :
+// The length function used with the passed parameter function returns the number of parameters the function accepts
 export default function functionLength(fn) {
-    throw 'Not implemented';
+    if(typeof fn === 'function') {
+        return fn.length;
+    }
 }
