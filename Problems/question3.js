@@ -44,5 +44,9 @@ sleep(2000).then(() => {
  * @return {Promise<void>}
  */
 export default async function sleep(duration) {
-    throw 'Not implemented';
+    /**
+     * resources used
+     * https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
+     */
+    return new Promise(resolve=>setTimeout(resolve,duration));
   }
