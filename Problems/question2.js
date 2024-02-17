@@ -19,6 +19,10 @@
  * counter(); // 7
  */
 
+// Solution 
+// The question simply suggests using closures (iterators to be more precise), the next function takes the parameter value returns the value and increments it
 export default function makeCounter(initialValue = 0) {
-    throw 'Not implemented';
+    return function next() {
+        return initialValue++;
+    }
 }

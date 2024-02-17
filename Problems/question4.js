@@ -26,6 +26,14 @@ Read more about it here: https://lodash.com/docs/#chunk
  * @param {number} [size=1] The length of each chunk.
  * @returns {Array<Array<T>>} The new array of chunks.
  */
+
+// Solution
+// Used the slice function and broke the part according to given size and stored in the newarray
 export default function chunk(array, size = 1) {
-    throw 'Not implemented!';
-  }
+    let newArray = [];
+    for(let index = 0; index < array.length; index += size) {
+        let temp = array.slice(index, index+size);
+        newArray.push(temp);
+    }
+    return newArray;
+}

@@ -20,5 +20,35 @@ Examples
  * @return {boolean}
  */
 export default function deepEqual(valueA, valueB) {
-    throw 'Not implemented!';
+  // typechecking
+  if(typeof valueA !== typeof valueB) return false;
+  
+  // primitive values
+  if(typeof valueA !== "object" || valueA == null || valueB == null) {
+    return valueA === valueB;
   }
+
+  // arrays
+  if(Array.isArray(valueA)) {
+    if(valueA.length !== valueB.length) return false;
+
+    let len = valueA.length;
+    for(let i = 0; i < len; i++) {
+      if(!deepEqual(valueA[i], valueB[i])) return false;
+    }
+    return true;
+  }
+
+  // objects
+  else {
+    const set1 = Object.keys(valueA);
+    const set2 = Object.keys(valueB);
+
+    if (set1.length != set2.length) return false;
+
+    for (const key of set1) {
+      if (!deepEqual(valueA[key], valueB[key])) return false;
+    }
+    return true;
+  }
+}
