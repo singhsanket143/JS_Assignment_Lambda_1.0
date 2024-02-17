@@ -20,5 +20,12 @@ Examples
  * @return {boolean}
  */
 export default function deepEqual(valueA, valueB) {
-    throw 'Not implemented!';
+    //strict comparsion(if passes then well and good for it else need to customise bit)
+    if(valueA===valueB) return true;
+
+    //now only case of objects
+    const bothObjects = valueA && valueB && typeof valueA === "object" && typeof valueB==="object";
+
+    return  (bothObjects && Object.keys(valueA).length === Object.keys(valueB).length)
+        && Object.keys(valueA).every(key => deepEqual(valueA[key], valueB[key]))
   }

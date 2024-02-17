@@ -20,5 +20,9 @@
  */
 
 export default function makeCounter(initialValue = 0) {
-    throw 'Not implemented';
+    //classic example of closure
+    function increment(){
+        return initialValue++;
+    }
+    return increment;
 }
