@@ -20,5 +20,9 @@ Examples
  * @return {boolean}
  */
 export default function deepEqual(valueA, valueB) {
-    throw 'Not implemented!';
-  }
+  return JSON.stringify(valueA) === JSON.stringify(valueB);
+}
+
+// console.log(deepEqual({ id: 1 }, { id: 1 }));
+// console.log(deepEqual([{ id: "1" }], [{ id: "2" }]));
+// console.log(deepEqual([1, 2, 3], [1, 2, 3]));
