@@ -20,5 +20,41 @@ Examples
  * @return {boolean}
  */
 export default function deepEqual(valueA, valueB) {
-    throw 'Not implemented!';
-  }
+    if(valueA === valueB) {
+        return true;
+    }
+
+    if(valueA === null || valueB === null) {
+        return false;
+    }
+
+    if(typeof valueA !== "object" || typeof valueB !== "object"){
+        return false;
+    }
+
+    if (Array.isArray(valueA) && Array.isArray(valueB)) {
+        if(valueA.length !== valueB.length) {
+            return false;
+        }
+
+        for(let i = 0; i < valueA.length; i++) {
+            if (!deepEqual(valueA[i], valueB[i])) {
+                return false;
+            }
+        }
+    }
+
+    const keysA = Object.keys(valueA);
+    const keysB = Object.keys(valueB);
+    if(keysA.length !== keysB.length) {
+        return false;
+    }
+
+    for(const key of keysA) {
+        if(!keysB.includes(key) || !deepEqual(valueA[key], valueB[key])) {
+            return false;
+        }
+    }
+
+    return true;
+}
