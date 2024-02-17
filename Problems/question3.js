@@ -44,5 +44,13 @@ sleep(2000).then(() => {
  * @return {Promise<void>}
  */
 export default async function sleep(duration) {
-    throw 'Not implemented';
-  }
+  const sleepPromise = new Promise((resolve, reject) => {
+    //run a loop for the duration and then reoslve the promise
+    setTimeout(() => {
+      resolve();
+    }, duration);
+  });
+
+  return await sleepPromise;
+}
+
