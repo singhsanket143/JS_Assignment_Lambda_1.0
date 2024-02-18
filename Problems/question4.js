@@ -19,13 +19,24 @@ Examples
 Read more about it here: https://lodash.com/docs/#chunk
  */
 
-
 /**
  * @template T
  * @param {Array<T>} array The array to process.
  * @param {number} [size=1] The length of each chunk.
  * @returns {Array<Array<T>>} The new array of chunks.
  */
+function chuckHelper(array,chunkedArray,size){
+    if(array.length == 0){
+        return;
+    }
+    chunkedArray.push(array.splice(0,size));
+    chuckHelper(array,chunkedArray,size);
+}
 export default function chunk(array, size = 1) {
-    throw 'Not implemented!';
+  if (array.length === 0) {
+    return [];
   }
+  let chunkedArray = [];
+  chuckHelper(array,chunkedArray,size);
+  return chunkedArray;
+}
