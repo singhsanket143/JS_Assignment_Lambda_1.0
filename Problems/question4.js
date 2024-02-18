@@ -26,6 +26,40 @@ Read more about it here: https://lodash.com/docs/#chunk
  * @param {number} [size=1] The length of each chunk.
  * @returns {Array<Array<T>>} The new array of chunks.
  */
+
+//-----------------------------my first solution--------------------------------
 export default function chunk(array, size = 1) {
-    throw 'Not implemented!';
-  }
+    const result = [];
+    
+    for (let index = 0; index <= array.length; index = index + size) {
+        let temp = []; 
+
+        if(index >= array.length) break;
+
+        for (let s = index; s < (index+size); s++) {
+            if(!array[s]) break;
+            temp.push(array[s]);
+        }
+
+        result.push(temp);
+    }
+
+    return result;
+}
+
+console.log(chunk([1,2,3,4,5,6,7,8,9], 3));
+
+//--------------------------efficient solution after doing browsing internet-----------------
+function chunkEfficient(array, size = 1) {
+    const result = [];
+    let index = 0;
+    
+    while (index < array.length) {
+        result.push(array.slice(index, index + size));
+        index += size;
+    }
+
+    return result;
+}
+
+console.log(chunkEfficient([1,2,3,4,5,6,7,8,9], 3));
