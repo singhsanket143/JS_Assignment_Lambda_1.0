@@ -21,4 +21,5 @@ Examples
  */
 export default function deepEqual(valueA, valueB) {
   return JSON.stringify(valueA) === JSON.stringify(valueB);
+  // test
 }
