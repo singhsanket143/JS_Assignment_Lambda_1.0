@@ -15,5 +15,9 @@
  */
 
 export default function functionLength(fn) {
-    throw 'Not implemented';
+  if (typeof fn === "function") {
+    return fn.length;
+  }
+  //throw error or return null undefined or -1 in case of the passed parameter is not a function
+  return undefined;
 }
