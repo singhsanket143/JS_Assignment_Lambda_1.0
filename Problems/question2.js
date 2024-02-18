@@ -20,5 +20,9 @@
  */
 
 export default function makeCounter(initialValue = 0) {
-    throw 'Not implemented';
+    return () => initialValue++;
 }
+
+//custom-tests
+const test1 = makeCounter();
+console.log(test1(), test1(), test1(), test1());

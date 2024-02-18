@@ -14,6 +14,16 @@
     functionLength(baz); // 2
  */
 
+//custom-tests
+const test1 = () => {};
+const test2 = (a) => {};
+const test3 = (a, b) => {};
+
 export default function functionLength(fn) {
-    throw 'Not implemented';
+    console.log(fn.length); //fn object has the length property
+    return fn.length;
 }
+
+functionLength(test1);
+functionLength(test2);
+functionLength(test3);

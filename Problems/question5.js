@@ -20,5 +20,30 @@ Examples
  * @return {boolean}
  */
 export default function deepEqual(valueA, valueB) {
-    throw 'Not implemented!';
+  const isType = type(valueA, valueB);
+
+  if(isType) {
+    switch(isType) {
+      case 'string': 
+        return valueA === valueB;
+      case 'number': 
+        return valueA === valueB;
+      case 'boolean': 
+        return valueA === valueB;
+      case 'object': 
+        return JSON.stringify(valueA) === JSON.stringify(valueB);
+    }
+  } else {
+    console.log('Both values are not of the same type');
+    return false;
   }
+}
+
+console.log(deepEqual({a: '1', b: '2'}, {a: '1', b: '2'}));
+
+//---utility functions
+
+//-------------to check the types---------------
+function type(a, b) {
+    return typeof a === typeof b ? typeof a : false;
+} 
