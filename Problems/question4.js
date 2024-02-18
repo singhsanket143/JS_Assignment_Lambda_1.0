@@ -7,6 +7,7 @@ remaining elements. The function should not modify the original input array.
 Arguments
     array (Array): The array to process.
     [size=1] (number): The length of each chunk.
+
 Returns
     (Array): Returns the new array of chunks.
 
@@ -27,5 +28,20 @@ Read more about it here: https://lodash.com/docs/#chunk
  * @returns {Array<Array<T>>} The new array of chunks.
  */
 export default function chunk(array, size = 1) {
+    if (size <= 0) {
+        throw new Error('Chunk size must be a positive integer');
+    }
+
+    if (array.length === 0) {
+        return [];
+      }
+
+      const result = [];
+      for (let i = 0; i < array.length; i += size) {
+        result.push(array.slice(i, i + size));
+      }
+    
+      return result;
+
     throw 'Not implemented!';
   }
