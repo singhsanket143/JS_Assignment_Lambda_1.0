@@ -20,5 +20,26 @@ Examples
  * @return {boolean}
  */
 export default function deepEqual(valueA, valueB) {
-    throw 'Not implemented!';
-  }
+    if (Number.isNaN(valueA) && Number.isNaN(valueB)) {
+      return true;
+    }
+    if (typeof valueA !== typeof valueB) {
+      return false;
+    }
+    if (valueA === null || typeof valueA !== 'object') {
+      return valueA === valueB;
+    }
+    const keysA = Object.keys(valueA);
+    const keysB = Object.keys(valueB);
+    if (keysA.length !== keysB.length) {
+      return false;
+    }
+    for (let key of keysA) {
+      if (!keysB.includes(key) || !deepEqual(valueA[key], valueB[key])) {
+          return false;
+      }
+    }
+
+    return true;
+
+}
