@@ -27,5 +27,21 @@ Read more about it here: https://lodash.com/docs/#chunk
  * @returns {Array<Array<T>>} The new array of chunks.
  */
 export default function chunk(array, size = 1) {
+    
+    if (size <= 0) {
+        throw new Error('Chunk size must be a positive integer');
+    }
+
+    if (array.length === 0) {
+        return [];
+      }
+
+      const result = [];
+      for (let i = 0; i < array.length; i += size) {
+        result.push(array.slice(i, i + size));
+      }
+    
+      return result;
+
     throw 'Not implemented!';
   }
