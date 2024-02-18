@@ -20,5 +20,36 @@ Examples
  * @return {boolean}
  */
 export default function deepEqual(valueA, valueB) {
-    throw 'Not implemented!';
+    if (typeof valueA != typeof valueB){
+      return false;
+    }
+
+    if(typeof valueA == 'number' || typeof valueA == 'string' || typeof valueA == 'boolean' || JSON.stringify(valueA) == 'null'){
+      return valueA == valueB;
+    }
+
+    if (Array.isArray(valueA) == true && Array.isArray(valueB) == true){
+      if (valueA.length != valueB.length){
+        return false;
+      }
+      for (let i=0; i<valueA.length; i++){
+        deepEqual(valueA[i], valueB[i]);
+      }
+    }
+    
+    let valueAKeys = new Set(Object.keys(valueA));
+    let valueBKeys = new Set(Object.keys(valueB));
+
+    if (valueAKeys.size != valueBKeys.size){
+      return false;
+    }
+
+    for (let key of valueAKeys){
+      if (!valueBKeys.has(key) || deepEqual(valueA[key], valueB[key])==false){
+
+        return false;
+      }
+    }
+    return true;
   }
+
