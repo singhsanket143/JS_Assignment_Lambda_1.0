@@ -44,5 +44,6 @@ sleep(2000).then(() => {
  * @return {Promise<void>}
  */
 export default async function sleep(duration) {
-    throw 'Not implemented';
-  }
+  if (typeof count === "number" && isNaN(count)) return undefined;
+  return new Promise((resolve) => setTimeout(resolve, duration));
+}
