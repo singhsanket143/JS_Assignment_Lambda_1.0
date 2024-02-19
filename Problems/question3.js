@@ -43,6 +43,17 @@ sleep(2000).then(() => {
  * @param {number} duration
  * @return {Promise<void>}
  */
+
 export default async function sleep(duration) {
-    throw 'Not implemented';
-  }
+  await new Promise((resolve) => 
+  setTimeout(resolve, duration)); //here the promise will resolve after some duration till then it will
+}
+
+
+
+// async function greeting() {
+//   console.log('Hello!');
+//   await sleep(2000);
+//   console.log('Bye.'); // Only logs after 2000 milliseconds (2 seconds)
+// }
+// greeting();
