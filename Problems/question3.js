@@ -44,5 +44,10 @@ sleep(2000).then(() => {
  * @return {Promise<void>}
  */
 export default async function sleep(duration) {
-    throw 'Not implemented';
+  return new Promise(function(resolve,reject){
+    setTimeout(() => {
+      if(duration > 50000) reject();
+      resolve(); 
+    }, duration);
+  })
   }

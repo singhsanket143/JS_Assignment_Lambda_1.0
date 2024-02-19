@@ -27,5 +27,34 @@ Read more about it here: https://lodash.com/docs/#chunk
  * @returns {Array<Array<T>>} The new array of chunks.
  */
 export default function chunk(array, size = 1) {
-    throw 'Not implemented!';
+    if(array.length === 0) return []; 
+    let Array_length = array.length;
+    let chunk_size = size;
+    let proper_chunks = Math.floor(Array_length/chunk_size);
+    let improper_chunks = 1;
+    let total_chunks = proper_chunks + improper_chunks;
+    let ans = []; 
+    let counter = 0;
+    //filling chunks inside ans array.
+    for(let i = 0; i < total_chunks; i++){
+        let subArr = [];
+        if(i < proper_chunks){
+            for(let j = 0; j < chunk_size; j++){
+                subArr.push(array[counter]);
+                counter++;
+            }
+        }else{
+            while(counter < Array_length){
+                subArr.push(array[counter]);
+                counter++;
+            }
+        }
+        ans.push(subArr);
+    }
+    // console.log(ans);
+    return ans;
   }
+
+
+// let ans = chunk([1,2], 3);
+// console.log(ans)
