@@ -20,5 +20,15 @@
  */
 
 export default function makeCounter(initialValue = 0) {
-    throw 'Not implemented';
+    let count = initialValue;
+    function counter()
+    {
+        return count++;
+    }
+    return counter;
 }
+
+// const counter = makeCounter(5);
+// console.log(counter()); // 5
+// console.log(counter()); // 6
+// console.log(counter()); // 7
