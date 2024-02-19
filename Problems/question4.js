@@ -26,6 +26,25 @@ Read more about it here: https://lodash.com/docs/#chunk
  * @param {number} [size=1] The length of each chunk.
  * @returns {Array<Array<T>>} The new array of chunks.
  */
+
 export default function chunk(array, size = 1) {
-    throw 'Not implemented!';
+    // if array is empty
+    if (array.length === 0) return [];
+  
+    // Ensure size is a positive number
+    if (typeof size !== 'number' || size <= 0) {
+      console.log("Enter positive number"); return
+    }
+  
+    const chunks = [];
+    let chunkIndex = 0;
+  
+    while (chunkIndex < array.length) {
+      // Create a new chunk the last index is excluded
+      chunks.push(array.slice(chunkIndex, chunkIndex + size)); //here it is inserting in chunks array by slicing the vale
+      chunkIndex += size;
+    }
+  
+    return chunks;
   }
+  
