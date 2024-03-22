@@ -19,13 +19,32 @@ Examples
 Read more about it here: https://lodash.com/docs/#chunk
  */
 
-
 /**
  * @template T
  * @param {Array<T>} array The array to process.
  * @param {number} [size=1] The length of each chunk.
  * @returns {Array<Array<T>>} The new array of chunks.
  */
-export default function chunk(array, size = 1) {
-    throw 'Not implemented!';
-  }
+export default function chunk(array, size = 1) 
+{
+    let ar = [];
+    let ini = 0;
+    let initial = array.length / size;
+    for (let i = 1; i <= initial; i++) {
+      let temp = [];
+      for (let j = ini; j < ini + size; j++) {
+        temp.push(array[j]);
+      }
+      ini += size;
+      ar.push(temp);
+    }
+    if (array.length % size !== 0) {
+      let temp = [];
+      let s = size * ar.length;
+      for (let i = s; i < array.length; i++) {
+        temp.push(array[i]);
+      }
+      ar.push(temp);
+    }
+    return ar;
+}
