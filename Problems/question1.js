@@ -15,5 +15,19 @@
  */
 
 export default function functionLength(fn) {
-    throw 'Not implemented';
+    const str = fn.toString();
+
+    let i = 0, cnt = 0;
+    while(str.charAt(i) != ')') {
+        if(str.charAt(i) == ',') {
+            cnt++;
+        }
+        i++;
+    }
+
+    if(i > 0 && str.charAt(i-1) == '(') {
+        return 0;
+    }
+    return cnt+1;
 }
+    
